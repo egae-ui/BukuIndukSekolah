@@ -84,6 +84,12 @@
       <DependentUpon>FLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="KF.cs" />
+    <Compile Include="Jurusan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jurusan.Designer.cs">
+      <DependentUpon>Jurusan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Siswa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FLogin.resx">
       <DependentUpon>FLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jurusan.resx">
+      <DependentUpon>Jurusan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Siswa.resx">
       <DependentUpon>Siswa.cs</DependentUpon>

@@ -92,5 +92,11 @@ namespace BukuIndukSekolah
             Siswa Menu = new Siswa() { TopMost = true, TopLevel = false };
             KF.untukformbis(Menu, PnlContent);
         }
+
+        private void BtnJurusan_Click(object sender, EventArgs e)
+        {
+            Jurusan Menu = new Jurusan() { TopMost = true, TopLevel = false };
+            KF.untukformbis(Menu, PnlContent);
+        }
     }
 }

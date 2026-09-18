@@ -38,7 +38,7 @@ namespace BukuIndukSekolah
             this.BtnDataM = new Guna.UI2.WinForms.Guna2Button();
             this.FlowPnlSide = new System.Windows.Forms.FlowLayoutPanel();
             this.FPnlKelas = new System.Windows.Forms.FlowLayoutPanel();
-            this.BtnKelas7 = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnJurusan = new Guna.UI2.WinForms.Guna2Button();
             this.BtnKelas8 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
@@ -186,7 +186,7 @@ namespace BukuIndukSekolah
             // 
             // FPnlKelas
             // 
-            this.FPnlKelas.Controls.Add(this.BtnKelas7);
+            this.FPnlKelas.Controls.Add(this.BtnJurusan);
             this.FPnlKelas.Controls.Add(this.BtnKelas8);
             this.FPnlKelas.Controls.Add(this.guna2Button1);
             this.FPnlKelas.Controls.Add(this.guna2Button2);
@@ -196,21 +196,22 @@ namespace BukuIndukSekolah
             this.FPnlKelas.TabIndex = 0;
             this.FPnlKelas.Visible = false;
             // 
-            // BtnKelas7
+            // BtnJurusan
             // 
-            this.BtnKelas7.AutoRoundedCorners = true;
-            this.BtnKelas7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnKelas7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnKelas7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnKelas7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnKelas7.Font = new System.Drawing.Font("Gloucester MT Extra Condensed", 12F);
-            this.BtnKelas7.ForeColor = System.Drawing.Color.White;
-            this.BtnKelas7.Location = new System.Drawing.Point(6, 8);
-            this.BtnKelas7.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            this.BtnKelas7.Name = "BtnKelas7";
-            this.BtnKelas7.Size = new System.Drawing.Size(263, 69);
-            this.BtnKelas7.TabIndex = 5;
-            this.BtnKelas7.Text = "Menejemen Jurusan";
+            this.BtnJurusan.AutoRoundedCorners = true;
+            this.BtnJurusan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnJurusan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnJurusan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnJurusan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnJurusan.Font = new System.Drawing.Font("Gloucester MT Extra Condensed", 12F);
+            this.BtnJurusan.ForeColor = System.Drawing.Color.White;
+            this.BtnJurusan.Location = new System.Drawing.Point(6, 8);
+            this.BtnJurusan.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.BtnJurusan.Name = "BtnJurusan";
+            this.BtnJurusan.Size = new System.Drawing.Size(263, 69);
+            this.BtnJurusan.TabIndex = 5;
+            this.BtnJurusan.Text = "Menejemen Jurusan";
+            this.BtnJurusan.Click += new System.EventHandler(this.BtnJurusan_Click);
             // 
             // BtnKelas8
             // 
@@ -377,7 +378,7 @@ namespace BukuIndukSekolah
         private System.Windows.Forms.Panel PnlContent;
         private Guna.UI2.WinForms.Guna2Button BtnSiswa;
         private System.Windows.Forms.FlowLayoutPanel FPnlKelas;
-        private Guna.UI2.WinForms.Guna2Button BtnKelas7;
+        private Guna.UI2.WinForms.Guna2Button BtnJurusan;
         private Guna.UI2.WinForms.Guna2Button BtnKelas8;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
