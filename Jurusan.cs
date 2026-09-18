@@ -59,7 +59,7 @@ namespace BukuIndukSekolah
         }
 
         private void BtnSimpan_Click(object sender, EventArgs e)
-        {
+        { 
             string Jurusan = TxtJurusan.Text;
             if (Idj_pilih == null)
             {

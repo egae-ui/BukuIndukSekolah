@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Data;
+using ExcelDataReader;
+using MySql.Data.MySqlClient;
 
 namespace BukuIndukSekolah
 {
@@ -306,6 +310,86 @@ namespace BukuIndukSekolah
                     }
                 }
             
+        }
+
+        private void BtnImport_Click(object sender, EventArgs e)
+        {
+            // 1. Pilih file Excel
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files (*.xlsx; *.xls)|*.xlsx;*.xls";
+            openFileDialog.Title = "Pilih File Excel Siswa";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                try
+                {
+                    // 2. Baca file Excel menggunakan ExcelDataReader
+                    using (var stream = File.Open(filePath, FileMode.Open, FileAccess.Read))
+                    {
+                        using (var reader = ExcelReaderFactory.CreateReader(stream))
+                        {
+                            var result = reader.AsDataSet(new ExcelDataSetConfiguration()
+                            {
+                                ConfigureDataTable = (_) => new ExcelDataTableConfiguration()
+                                {
+                                    UseHeaderRow = true // Baris pertama Excel dianggap nama kolom
+                                }
+                            });
+
+                            DataTable dt = result.Tables[0]; // Mengambil sheet pertama
+
+                            // 3. Koneksi ke Database MySQL (Sesuaikan string koneksi Anda)
+                            string connectionString = "server=localhost;database=dbbis;uid=root;pwd=;";
+
+                            using (MySqlConnection conn = new MySqlConnection(connectionString))
+                            {
+                                conn.Open();
+
+                                // Loop setiap baris di file Excel untuk dimasukkan ke database
+                                foreach (DataRow row in dt.Rows)
+                                {
+                                    // Query SQL Insert sesuai dengan struktur tabel siswa Anda
+                                    string query = @"INSERT INTO siswa 
+                                            (nisn, jurusan, kelas, nama_lengkap, jenis_kelamin, tmp_lahir, tgl_lahir, agama, nama_ayah, nama_ibu, alamat_domisili) 
+                                            VALUES 
+                                            (@nisn, @jurusan, @kelas, @nama_lengkap, @jenis_kelamin, @tmp_lahir, @tgl_lahir, @agama, @nama_ayah, @nama_ibu, @alamat_domisili)";
+
+                                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                                    {
+                                        // Memetakan kolom Excel ke parameter database (Sesuaikan nama kolom di dalam row["..."])
+                                        cmd.Parameters.AddWithValue("@nisn", row["nisn"].ToString());
+                                        cmd.Parameters.AddWithValue("@jurusan", row["jurusan"].ToString());
+                                        cmd.Parameters.AddWithValue("@kelas", row["kelas"].ToString());
+                                        cmd.Parameters.AddWithValue("@nama_lengkap", row["nama_lengkap"].ToString());
+                                        cmd.Parameters.AddWithValue("@jenis_kelamin", row["jenis_kelamin"].ToString());
+                                        cmd.Parameters.AddWithValue("@tmp_lahir", row["tmp_lahir"].ToString());
+
+                                        // Parsing tanggal lahir agar formatnya sesuai dengan MySQL (YYYY-MM-DD)
+                                        DateTime tglLahir = Convert.ToDateTime(row["tgl_lahir"]);
+                                        cmd.Parameters.AddWithValue("@tgl_lahir", tglLahir.ToString("yyyy-MM-dd"));
+
+                                        cmd.Parameters.AddWithValue("@agama", row["agama"].ToString());
+                                        cmd.Parameters.AddWithValue("@nama_ayah", row["nama_ayah"].ToString());
+                                        cmd.Parameters.AddWithValue("@nama_ibu", row["nama_ibu"].ToString());
+                                        cmd.Parameters.AddWithValue("@alamat_domisili", row["alamat_domisili"].ToString());
+
+                                        cmd.ExecuteNonQuery();
+                                    }
+                                }
+                            }
+
+                            MessageBox.Show("Semua data siswa berhasil di-import ke database!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Terjadi kesalahan: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                tampildata();
+            }
         }
     }
 }

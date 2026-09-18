@@ -40,6 +40,7 @@ namespace BukuIndukSekolah
             this.BtnTambah = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnImport = new Guna.UI2.WinForms.Guna2Button();
             this.TxtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.PnlCrud = new System.Windows.Forms.Panel();
             this.TxtAlamat = new Guna.UI2.WinForms.Guna2TextBox();
@@ -81,7 +82,6 @@ namespace BukuIndukSekolah
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.BtnImport = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.PnlCrud.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
@@ -126,6 +126,23 @@ namespace BukuIndukSekolah
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(901, 250);
             this.panel1.TabIndex = 2;
+            // 
+            // BtnImport
+            // 
+            this.BtnImport.AutoRoundedCorners = true;
+            this.BtnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.BtnImport.Font = new System.Drawing.Font("Gloucester MT Extra Condensed", 12F);
+            this.BtnImport.ForeColor = System.Drawing.Color.White;
+            this.BtnImport.Location = new System.Drawing.Point(505, 102);
+            this.BtnImport.Name = "BtnImport";
+            this.BtnImport.Size = new System.Drawing.Size(113, 35);
+            this.BtnImport.TabIndex = 3;
+            this.BtnImport.Text = "Import";
+            this.BtnImport.Click += new System.EventHandler(this.BtnImport_Click);
             // 
             // TxtSearch
             // 
@@ -724,22 +741,6 @@ namespace BukuIndukSekolah
             this.Column10.MinimumWidth = 8;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
-            // 
-            // BtnImport
-            // 
-            this.BtnImport.AutoRoundedCorners = true;
-            this.BtnImport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.BtnImport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.BtnImport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.BtnImport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.BtnImport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.BtnImport.Font = new System.Drawing.Font("Gloucester MT Extra Condensed", 12F);
-            this.BtnImport.ForeColor = System.Drawing.Color.White;
-            this.BtnImport.Location = new System.Drawing.Point(505, 102);
-            this.BtnImport.Name = "BtnImport";
-            this.BtnImport.Size = new System.Drawing.Size(113, 35);
-            this.BtnImport.TabIndex = 3;
-            this.BtnImport.Text = "Import";
             // 
             // Siswa
             // 
