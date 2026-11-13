@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CrystalReport xmlns="urn:crystal-reports:schemas:report-detail"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ReportClientDocument>
+    <SubreportClientDocumentsTMP/>
+    <DataDefController>
+      <DataDefinition>
+        <TableLinks/>
+        <Tables>
+          <Table LegacySmartLinkingEnabled="false">
+            <DataSource>
+              <ConnectionInfo>
+                <Kind>SQL</Kind>
+                <Attributes>
+                  <Attribute Name="Server Name" Value="localhost"/>
+                  <Attribute Name="Database Name" Value="dbbis"/>
+                  <Attribute Name="User ID" Value="root"/>
+                  <Attribute Name="Password" Value=""/>
+                  <Attribute Name="Use Integrated Security" Value="false"/>
+                  <Attribute Name="QE_DatabaseName" Value="dbbis"/>
+                  <Attribute Name="QE_DatabaseType" Value="MySQL"/>
+                  <Attribute Name="QE_LogonProperties">
+                    <Items>
+                      <Item>
+                        <Name>Data Source</Name>
+                        <Value>localhost</Value>
+                      </Item>
+                      <Item>
+                        <Name>User Id</Name>
+                        <Value>root</Value>
+                      </Item>
+                      <Item>
+                        <Name>Password</Name>
+                        <Value></Value>
+                      </Item>
+                      <Item>
+                        <Name>Database</Name>
+                        <Value>dbbis</Value>
+                      </Item>
+                    </Items>
+                  </Attribute>
+                  <Attribute Name="QE_ServerDescription" Value="localhost"/>
+                  <Attribute Name="QE_SQLDB" Value="true"/>
+                  <Attribute Name="SSO Enabled" Value="false"/>
+                </Attributes>
+              </ConnectionInfo>
+              <CommandTable Alias="siswa" Name="siswa"/>
+            </DataSource>
+            <Fields>
+              <Field FieldName="{siswa.nipd}" LegacyColumnType="StringColumn" Name="nipd" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.nisn}" LegacyColumnType="StringColumn" Name="nisn" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.nama_lengkap}" LegacyColumnType="StringColumn" Name="nama_lengkap" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.jurusan}" LegacyColumnType="StringColumn" Name="jurusan" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.kelas}" LegacyColumnType="StringColumn" Name="kelas" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.jenis_kelamin}" LegacyColumnType="StringColumn" Name="jenis_kelamin" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.tmp_lahir}" LegacyColumnType="StringColumn" Name="tmp_lahir" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.tgl_lahir}" LegacyColumnType="DateColumn" Name="tgl_lahir" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.agama}" LegacyColumnType="StringColumn" Name="agama" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.nama_ayah}" LegacyColumnType="StringColumn" Name="nama_ayah" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.nama_ibu}" LegacyColumnType="StringColumn" Name="nama_ibu" IsRecurringColumn="false" UseCount="0"/>
+              <Field FieldName="{siswa.alamat_domisili}" LegacyColumnType="StringColumn" Name="alamat_domisili" IsRecurringColumn="false" UseCount="0"/>
+            </Fields>
+          </Table>
+        </Tables>
+        <FormulaFieldDefinitions/>
+        <GroupNameFieldDefinitions/>
+        <SQLExpressionFields/>
+        <ParameterFieldDefinitions/>
+        <RunningTotalFieldDefinitions/>
+        <SubreportLinks/>
+        <Filters/>
+      </DataDefinition>
+    </DataDefController>
+    <ReportDefController>
+      <ReportDefinition>
+        <PageSetup>
+          <PaperSize>a4</PaperSize>
+          <PaperOrientation>Landscape</PaperOrientation>
+          <TopMargin>1134</TopMargin>
+          <BottomMargin>1134</BottomMargin>
+          <LeftMargin>1800</LeftMargin>
+          <RightMargin>1800</RightMargin>
+        </PageSetup>
+        <ReportHeaderArea>
+          <Height>1500</Height>
+          <Objects>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>NoLine</BottomLineStyle>
+                <LeftLineStyle>NoLine</LeftLineStyle>
+                <RightLineStyle>NoLine</RightLineStyle>
+                <TopLineStyle>NoLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>0</Left>
+                <Top>0</Top>
+                <Width>17820</Width>
+                <Height>600</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="16" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>DAFTAR DATA SISWA</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>NoLine</BottomLineStyle>
+                <LeftLineStyle>NoLine</LeftLineStyle>
+                <RightLineStyle>NoLine</RightLineStyle>
+                <TopLineStyle>NoLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>0</Left>
+                <Top>600</Top>
+                <Width>17820</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="11" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>Buku Induk Sekolah</Text>
+            </TextObject>
+            <LineObject>
+              <Bounds>
+                <Left>0</Left>
+                <Top>1000</Top>
+                <Width>17820</Width>
+                <Height>50</Height>
+              </Bounds>
+              <LineStyle>Solid</LineStyle>
+              <LineThickness>50</LineThickness>
+              <LineColor>0</LineColor>
+            </LineObject>
+          </Objects>
+        </ReportHeaderArea>
+        <PageHeaderArea>
+          <Height>800</Height>
+          <Objects>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>0</Left>
+                <Top>0</Top>
+                <Width>900</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>No</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>900</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>NIPD</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>2700</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>NISN</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>4500</Left>
+                <Top>0</Top>
+                <Width>2700</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>Nama Lengkap</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>7200</Left>
+                <Top>0</Top>
+                <Width>2700</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>Jurusan</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>9900</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>Kelas</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>11700</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>L/P</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>13500</Left>
+                <Top>0</Top>
+                <Width>2160</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>Tempat, Tgl Lahir</Text>
+            </TextObject>
+            <TextObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>15660</Left>
+                <Top>0</Top>
+                <Width>2160</Width>
+                <Height>500</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="true" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <CrystalClassName>TextObject</CrystalClassName>
+              <Text>Alamat</Text>
+            </TextObject>
+          </Objects>
+        </PageHeaderArea>
+        <DetailArea>
+          <Height>400</Height>
+          <Objects>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>0</Left>
+                <Top>0</Top>
+                <Width>900</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="RecordNumber" FormulaName="{RecordNumber}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>900</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="nipd" FormulaName="{siswa.nipd}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>2700</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="nisn" FormulaName="{siswa.nisn}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>4500</Left>
+                <Top>0</Top>
+                <Width>2700</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="nama_lengkap" FormulaName="{siswa.nama_lengkap}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>7200</Left>
+                <Top>0</Top>
+                <Width>2700</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="jurusan" FormulaName="{siswa.jurusan}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>9900</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="kelas" FormulaName="{siswa.kelas}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>CenterAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>11700</Left>
+                <Top>0</Top>
+                <Width>1800</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="jenis_kelamin" FormulaName="{siswa.jenis_kelamin}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>13500</Left>
+                <Top>0</Top>
+                <Width>2160</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="tmp_lahir" FormulaName="{siswa.tmp_lahir}"/>
+            </FieldObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>SingleLine</BottomLineStyle>
+                <LeftLineStyle>SingleLine</LeftLineStyle>
+                <RightLineStyle>SingleLine</RightLineStyle>
+                <TopLineStyle>SingleLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>15660</Left>
+                <Top>0</Top>
+                <Width>2160</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="alamat_domisili" FormulaName="{siswa.alamat_domisili}"/>
+            </FieldObject>
+          </Objects>
+        </DetailArea>
+        <ReportFooterArea>
+          <Height>500</Height>
+          <Objects>
+            <LineObject>
+              <Bounds>
+                <Left>0</Left>
+                <Top>0</Top>
+                <Width>17820</Width>
+                <Height>50</Height>
+              </Bounds>
+              <LineStyle>Solid</LineStyle>
+              <LineThickness>50</LineThickness>
+              <LineColor>0</LineColor>
+            </LineObject>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>LeftAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>NoLine</BottomLineStyle>
+                <LeftLineStyle>NoLine</LeftLineStyle>
+                <RightLineStyle>NoLine</RightLineStyle>
+                <TopLineStyle>NoLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>0</Left>
+                <Top>100</Top>
+                <Width>4000</Width>
+                <Height>400</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="9" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="PageNofM" FormulaName="{PageNofM}"/>
+            </FieldObject>
+          </Objects>
+        </ReportFooterArea>
+        <PageFooterArea>
+          <Height>300</Height>
+          <Objects>
+            <FieldObject>
+              <ObjectFormat>
+                <HorizontalAlignment>RightAlign</HorizontalAlignment>
+                <VerticalAlignment>MiddleAlign</VerticalAlignment>
+                <CloseBorder>false</CloseBorder>
+              </ObjectFormat>
+              <Border>
+                <BottomLineStyle>NoLine</BottomLineStyle>
+                <LeftLineStyle>NoLine</LeftLineStyle>
+                <RightLineStyle>NoLine</RightLineStyle>
+                <TopLineStyle>NoLine</TopLineStyle>
+              </Border>
+              <Bounds>
+                <Left>13820</Left>
+                <Top>0</Top>
+                <Width>4000</Width>
+                <Height>300</Height>
+              </Bounds>
+              <Font fontName="Arial" fontSize="8" isBold="false" isItalic="false" isStrikethrough="false" isUnderline="false"/>
+              <DataSource FieldName="PrintDate" FormulaName="{PrintDate}"/>
+            </FieldObject>
+          </Objects>
+        </PageFooterArea>
+      </ReportDefinition>
+    </ReportDefController>
+  </ReportClientDocument>
+</CrystalReport>

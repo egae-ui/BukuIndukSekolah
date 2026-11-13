@@ -98,5 +98,29 @@ namespace BukuIndukSekolah
             Jurusan Menu = new Jurusan() { TopMost = true, TopLevel = false };
             KF.untukformbis(Menu, PnlContent);
         }
+
+        private void BtnLaporan_Click(object sender, EventArgs e)
+        {
+            LaporanSiswa Menu = new LaporanSiswa() { TopMost = true, TopLevel = false };
+            KF.untukformbis(Menu, PnlContent);
+        }
+
+        private void BtnKelas8_Click(object sender, EventArgs e)
+        {
+            Kelas Menu = new Kelas() { TopMost = true, TopLevel = false };
+            KF.untukformbis(Menu, PnlContent);
+        }
+
+        private void BtnWaliKelas_Click(object sender, EventArgs e)
+        {
+            WaliKelas Menu = new WaliKelas() { TopMost = true, TopLevel = false };
+            KF.untukformbis(Menu, PnlContent);
+        }
+
+        private void BtnMataPelajaran_Click(object sender, EventArgs e)
+        {
+            MataPelajaran Menu = new MataPelajaran() { TopMost = true, TopLevel = false };
+            KF.untukformbis(Menu, PnlContent);
+        }
     }
 }

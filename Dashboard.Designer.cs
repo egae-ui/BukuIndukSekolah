@@ -36,6 +36,7 @@ namespace BukuIndukSekolah
             this.BtnKelas = new Guna.UI2.WinForms.Guna2Button();
             this.BtnDash = new Guna.UI2.WinForms.Guna2Button();
             this.BtnDataM = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnLaporan = new Guna.UI2.WinForms.Guna2Button();
             this.FlowPnlSide = new System.Windows.Forms.FlowLayoutPanel();
             this.FPnlKelas = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnJurusan = new Guna.UI2.WinForms.Guna2Button();
@@ -48,11 +49,13 @@ namespace BukuIndukSekolah
             this.LabelBar = new System.Windows.Forms.Label();
             this.PnlHeader = new System.Windows.Forms.Panel();
             this.PnlContent = new System.Windows.Forms.Panel();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.FPnlDataM.SuspendLayout();
             this.FlowPnlSide.SuspendLayout();
             this.FPnlKelas.SuspendLayout();
             this.PnlSidebar.SuspendLayout();
             this.PnlHeader.SuspendLayout();
+            this.PnlContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // FPnlDataM
@@ -125,7 +128,7 @@ namespace BukuIndukSekolah
             this.BtnKelas.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnKelas.Font = new System.Drawing.Font("Gloucester MT Extra Condensed", 12F);
             this.BtnKelas.ForeColor = System.Drawing.Color.White;
-            this.BtnKelas.Location = new System.Drawing.Point(6, 444);
+            this.BtnKelas.Location = new System.Drawing.Point(6, 531);
             this.BtnKelas.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.BtnKelas.Name = "BtnKelas";
             this.BtnKelas.Size = new System.Drawing.Size(266, 69);
@@ -168,6 +171,23 @@ namespace BukuIndukSekolah
             this.BtnDataM.Text = "DataMaster";
             this.BtnDataM.Click += new System.EventHandler(this.BtnDataM_Click);
             // 
+            // BtnLaporan
+            // 
+            this.BtnLaporan.AutoRoundedCorners = true;
+            this.BtnLaporan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnLaporan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnLaporan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnLaporan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnLaporan.Font = new System.Drawing.Font("Gloucester MT Extra Condensed", 12F);
+            this.BtnLaporan.ForeColor = System.Drawing.Color.White;
+            this.BtnLaporan.Location = new System.Drawing.Point(6, 444);
+            this.BtnLaporan.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
+            this.BtnLaporan.Name = "BtnLaporan";
+            this.BtnLaporan.Size = new System.Drawing.Size(266, 71);
+            this.BtnLaporan.TabIndex = 10;
+            this.BtnLaporan.Text = "Laporan Siswa";
+            this.BtnLaporan.Click += new System.EventHandler(this.BtnLaporan_Click);
+            // 
             // FlowPnlSide
             // 
             this.FlowPnlSide.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -176,6 +196,7 @@ namespace BukuIndukSekolah
             this.FlowPnlSide.Controls.Add(this.BtnDataM);
             this.FlowPnlSide.Controls.Add(this.FPnlDataM);
             this.FlowPnlSide.Controls.Add(this.BtnSiswa);
+            this.FlowPnlSide.Controls.Add(this.BtnLaporan);
             this.FlowPnlSide.Controls.Add(this.BtnKelas);
             this.FlowPnlSide.Controls.Add(this.FPnlKelas);
             this.FlowPnlSide.Location = new System.Drawing.Point(6, 126);
@@ -190,7 +211,7 @@ namespace BukuIndukSekolah
             this.FPnlKelas.Controls.Add(this.BtnKelas8);
             this.FPnlKelas.Controls.Add(this.guna2Button1);
             this.FPnlKelas.Controls.Add(this.guna2Button2);
-            this.FPnlKelas.Location = new System.Drawing.Point(3, 524);
+            this.FPnlKelas.Location = new System.Drawing.Point(3, 611);
             this.FPnlKelas.Name = "FPnlKelas";
             this.FPnlKelas.Size = new System.Drawing.Size(290, 349);
             this.FPnlKelas.TabIndex = 0;
@@ -228,6 +249,7 @@ namespace BukuIndukSekolah
             this.BtnKelas8.Size = new System.Drawing.Size(263, 71);
             this.BtnKelas8.TabIndex = 6;
             this.BtnKelas8.Text = "Menejemen Kelas";
+            this.BtnKelas8.Click += new System.EventHandler(this.BtnKelas8_Click);
             // 
             // guna2Button1
             // 
@@ -244,6 +266,7 @@ namespace BukuIndukSekolah
             this.guna2Button1.Size = new System.Drawing.Size(263, 71);
             this.guna2Button1.TabIndex = 7;
             this.guna2Button1.Text = "Menejemen Wali Kelas";
+            this.guna2Button1.Click += new System.EventHandler(this.BtnWaliKelas_Click);
             // 
             // guna2Button2
             // 
@@ -260,6 +283,7 @@ namespace BukuIndukSekolah
             this.guna2Button2.Size = new System.Drawing.Size(263, 71);
             this.guna2Button2.TabIndex = 8;
             this.guna2Button2.Text = "Menejemen Mata Pelajaran";
+            this.guna2Button2.Click += new System.EventHandler(this.BtnMataPelajaran_Click);
             // 
             // PnlSidebar
             // 
@@ -329,12 +353,27 @@ namespace BukuIndukSekolah
             // PnlContent
             // 
             this.PnlContent.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.PnlContent.Controls.Add(this.guna2Button3);
             this.PnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlContent.Location = new System.Drawing.Point(313, 126);
             this.PnlContent.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.PnlContent.Name = "PnlContent";
             this.PnlContent.Size = new System.Drawing.Size(1571, 908);
             this.PnlContent.TabIndex = 16;
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(199, 386);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button3.TabIndex = 0;
+            this.guna2Button3.Text = "guna2Button3";
             // 
             // Dashboard
             // 
@@ -357,6 +396,7 @@ namespace BukuIndukSekolah
             this.PnlSidebar.ResumeLayout(false);
             this.PnlHeader.ResumeLayout(false);
             this.PnlHeader.PerformLayout();
+            this.PnlContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -382,5 +422,7 @@ namespace BukuIndukSekolah
         private Guna.UI2.WinForms.Guna2Button BtnKelas8;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button BtnLaporan;
+        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
