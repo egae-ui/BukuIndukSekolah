@@ -49,13 +49,11 @@ namespace BukuIndukSekolah
             this.LabelBar = new System.Windows.Forms.Label();
             this.PnlHeader = new System.Windows.Forms.Panel();
             this.PnlContent = new System.Windows.Forms.Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.FPnlDataM.SuspendLayout();
             this.FlowPnlSide.SuspendLayout();
             this.FPnlKelas.SuspendLayout();
             this.PnlSidebar.SuspendLayout();
             this.PnlHeader.SuspendLayout();
-            this.PnlContent.SuspendLayout();
             this.SuspendLayout();
             // 
             // FPnlDataM
@@ -353,27 +351,12 @@ namespace BukuIndukSekolah
             // PnlContent
             // 
             this.PnlContent.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.PnlContent.Controls.Add(this.guna2Button3);
             this.PnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlContent.Location = new System.Drawing.Point(313, 126);
             this.PnlContent.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.PnlContent.Name = "PnlContent";
             this.PnlContent.Size = new System.Drawing.Size(1571, 908);
             this.PnlContent.TabIndex = 16;
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(199, 386);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(180, 45);
-            this.guna2Button3.TabIndex = 0;
-            this.guna2Button3.Text = "guna2Button3";
             // 
             // Dashboard
             // 
@@ -396,7 +379,6 @@ namespace BukuIndukSekolah
             this.PnlSidebar.ResumeLayout(false);
             this.PnlHeader.ResumeLayout(false);
             this.PnlHeader.PerformLayout();
-            this.PnlContent.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -423,6 +405,5 @@ namespace BukuIndukSekolah
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button BtnLaporan;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }
 }
