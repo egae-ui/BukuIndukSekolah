@@ -73,16 +73,20 @@ namespace BukuIndukSekolah
             TxtNisn.Text = "";
             TxtNipd.Text = "";
             TxtNama.Text = "";
-            CmbJurusan.SelectedIndex = -1;
-            CmbKelas.SelectedIndex = -1;
+            // Unsubscribe dulu agar Clear tidak trigger SelectedIndexChanged
+            CmbJurusan.SelectedIndexChanged -= CmbJurusan_SelectedIndexChanged;
+            CmbJurusan.DataSource = null;
+            CmbKelas.DataSource = null;
+            CmbAgama.DataSource = null;
+            CmbJurusan.SelectedIndexChanged += CmbJurusan_SelectedIndexChanged;
             RBLakilaki.Checked = false;
             RBPerempuan.Checked = false;
-            DTPTglLahir.Value = DateTime.Now;
+            DTPTglLahir.Value = new DateTime(2008, 1, 1);
             TxtTmpLahir.Text = "";
-            CmbAgama.SelectedIndex = -1;
             TxtNmAyah.Text = "";
             TxtNmIbu.Text = "";
             TxtAlamat.Text = "";
+            Nipd_pilih = null;
         }
 
         private void BtnTambah_Click(object sender, EventArgs e)
@@ -184,25 +188,37 @@ namespace BukuIndukSekolah
                     {
                         DataRow brs = DBBIS.ds.Tables[0].Rows[0];
 
+                        // Simpan nilai dulu sebelum query berikutnya menimpa DBBIS.ds
+                        string jurusanTerpilih = "" + brs["jurusan"];
+                        string kelasTerpilih   = "" + brs["kelas"];
+                        string agamaTerpilih   = "" + brs["agama"];
+                        string genderTerpilih  = "" + brs["jenis_kelamin"];
+
+                        TxtNipd.Text    = "" + brs["nipd"];
+                        TxtNisn.Text    = "" + brs["nisn"];
+                        TxtNama.Text    = "" + brs["nama_lengkap"];
+                        TxtTmpLahir.Text = "" + brs["tmp_lahir"];
+                        DTPTglLahir.Value = Convert.ToDateTime(brs["tgl_lahir"]);
+                        TxtNmAyah.Text  = "" + brs["nama_ayah"];
+                        TxtNmIbu.Text   = "" + brs["nama_ibu"];
+                        TxtAlamat.Text  = "" + brs["alamat_domisili"];
+
+                        if (genderTerpilih == "Laki-laki") RBLakilaki.Checked = true;
+                        else if (genderTerpilih == "Perempuan") RBPerempuan.Checked = true;
+
+                        // Unsubscribe agar set DataSource tidak trigger chain query
                         CmbJurusan.SelectedIndexChanged -= CmbJurusan_SelectedIndexChanged;
- 
+
+                        // Isi CmbJurusan
                         DBBIS.crud("SELECT nama_jurusan FROM jurusan");
                         if (DBBIS.ds.Tables[0].Rows.Count > 0)
                         {
                             CmbJurusan.DataSource = DBBIS.ds.Tables[0];
                             CmbJurusan.DisplayMember = "nama_jurusan";
                         }
+                        CmbJurusan.Text = jurusanTerpilih;
 
-                        DBBIS.crud("SELECT agama FROM agama"); 
-                        if (DBBIS.ds.Tables[0].Rows.Count > 0)
-                        {
-                            CmbAgama.DataSource = DBBIS.ds.Tables[0];
-                            CmbAgama.DisplayMember = "agama";
-                        }
-
-                        string jurusanTerpilih = "" + brs["jurusan"];
-
-                        // Ambil kelas berdasarkan id_jurusan dari DB (dinamis, tidak hardcode)
+                        // Isi CmbKelas berdasarkan jurusan terpilih
                         DBBIS.crud($"SELECT id_jurusan FROM jurusan WHERE nama_jurusan = '{jurusanTerpilih}'");
                         if (DBBIS.ds.Tables[0].Rows.Count > 0)
                         {
@@ -213,36 +229,26 @@ namespace BukuIndukSekolah
                         {
                             DBBIS.crud("SELECT nama_kelas FROM kelas ORDER BY nama_kelas");
                         }
-
                         if (DBBIS.ds.Tables[0].Rows.Count > 0)
                         {
                             CmbKelas.DataSource = DBBIS.ds.Tables[0];
                             CmbKelas.DisplayMember = "nama_kelas";
                         }
+                        CmbKelas.Text = kelasTerpilih;
 
-                        TxtNipd.Text = "" + brs["nipd"];
-                        TxtNisn.Text = "" + brs["nisn"];
-                        TxtNama.Text = "" + brs["nama_lengkap"];
+                        // Isi CmbAgama
+                        DBBIS.crud("SELECT nama_agama FROM agama");
+                        if (DBBIS.ds.Tables[0].Rows.Count > 0)
+                        {
+                            CmbAgama.DataSource = DBBIS.ds.Tables[0];
+                            CmbAgama.DisplayMember = "nama_agama";
+                        }
+                        CmbAgama.Text = agamaTerpilih;
 
-                        CmbJurusan.Text = jurusanTerpilih;
-                        CmbKelas.Text = "" + brs["kelas"];
-                        CmbAgama.Text = "" + brs["agama"];
-
-                        TxtTmpLahir.Text = "" + brs["tmp_lahir"];
-                        DTPTglLahir.Value = Convert.ToDateTime(brs["tgl_lahir"]);
-
-                        TxtNmAyah.Text = "" + brs["nama_ayah"];
-                        TxtNmIbu.Text = "" + brs["nama_ibu"];
-                        TxtAlamat.Text = "" + brs["alamat_domisili"];
-
-                        string gender = "" + brs["jenis_kelamin"];
-                        if (gender == "Laki-laki") { RBLakilaki.Checked = true; }
-                        else if (gender == "Perempuan") { RBPerempuan.Checked = true; }
-
+                        // Re-subscribe setelah semua selesai diset
                         CmbJurusan.SelectedIndexChanged += CmbJurusan_SelectedIndexChanged;
                     }
-                    tampildata();
-            }
+                }
 
 
             if (column == 9)
@@ -266,66 +272,58 @@ namespace BukuIndukSekolah
 
         private void CmbJurusan_DropDown(object sender, EventArgs e)
         {
-            CmbJurusan.DataSource = null;
             DBBIS.crud("SELECT nama_jurusan FROM jurusan");
-            CmbJurusan.DataSource = DBBIS.ds.Tables[0];
-            CmbJurusan.DisplayMember = "nama_jurusan";
-
-            CmbJurusan.MaxDropDownItems = 4;
+            if (DBBIS.ds.Tables[0].Rows.Count > 0)
+            {
+                CmbJurusan.DataSource = DBBIS.ds.Tables[0];
+                CmbJurusan.DisplayMember = "nama_jurusan";
+                CmbJurusan.MaxDropDownItems = 8;
+            }
         }
 
         private void CmbKelas_DropDown(object sender, EventArgs e)
         {
-            //CmbKelas.DataSource = null;
-            //DBBIS.crud("SELECT nama_kelas FROM kelas");
-            //CmbKelas.DataSource = DBBIS.ds.Tables[0];
-            //CmbKelas.DisplayMember = "nama_kelas";
-
-            //CmbKelas.MaxDropDownItems = 4;
+            // Kelas diisi otomatis saat jurusan dipilih via CmbJurusan_SelectedIndexChanged
+            // Tidak perlu load ulang di sini
         }
 
         private void CmbAgama_DropDown(object sender, EventArgs e)
         {
-            CmbAgama.DataSource = null;
-            DBBIS.crud("SELECT agama FROM agama");
-            CmbAgama.DataSource = DBBIS.ds.Tables[0];
-            CmbAgama.DisplayMember = "agama";
-
-            CmbAgama.MaxDropDownItems = 4;
+            DBBIS.crud("SELECT nama_agama FROM agama");
+            if (DBBIS.ds.Tables[0].Rows.Count > 0)
+            {
+                CmbAgama.DataSource = DBBIS.ds.Tables[0];
+                CmbAgama.DisplayMember = "nama_agama";
+                CmbAgama.MaxDropDownItems = 8;
+            }
         }
 
         private void CmbJurusan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbJurusan.SelectedIndex == -1 || CmbJurusan.Text == "") return;
+            if (CmbJurusan.SelectedIndex == -1 || string.IsNullOrEmpty(CmbJurusan.Text)) return;
 
+            // Reset kelas
             CmbKelas.DataSource = null;
-            CmbKelas.Items.Clear();
 
-            // Ambil id_jurusan berdasarkan nama yang dipilih, lalu filter kelas
+            // Ambil id_jurusan, lalu load kelas yang sesuai
             DBBIS.crud($"SELECT id_jurusan FROM jurusan WHERE nama_jurusan = '{CmbJurusan.Text}'");
             if (DBBIS.ds.Tables[0].Rows.Count > 0)
             {
                 string idJurusan = "" + DBBIS.ds.Tables[0].Rows[0]["id_jurusan"];
                 DBBIS.crud($"SELECT nama_kelas FROM kelas WHERE id_jurusan = '{idJurusan}' ORDER BY nama_kelas");
-            }
-            else
-            {
-                // Fallback: cari kelas dengan nama yang mirip jurusan (kompatibilitas data lama)
-                DBBIS.crud("SELECT nama_kelas FROM kelas ORDER BY nama_kelas");
-            }
 
-            if (DBBIS.ds.Tables[0].Rows.Count > 0)
-            {
-                CmbKelas.DataSource = DBBIS.ds.Tables[0];
-                CmbKelas.DisplayMember = "nama_kelas";
-                CmbKelas.SelectedIndex = -1;
-                CmbKelas.MaxDropDownItems = 8;
-            }
-            else
-            {
-                // Jurusan baru belum punya kelas — user perlu tambah kelas dulu
-                MessageBox.Show($"Jurusan '{CmbJurusan.Text}' belum memiliki kelas.\nTambahkan kelas terlebih dahulu di menu Manajemen Kelas.",
-                                "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (DBBIS.ds.Tables[0].Rows.Count > 0)
+                {
+                    CmbKelas.DataSource = DBBIS.ds.Tables[0];
+                    CmbKelas.DisplayMember = "nama_kelas";
+                    CmbKelas.SelectedIndex = -1;
+                    CmbKelas.MaxDropDownItems = 8;
+                }
+                else
+                {
+                    MessageBox.Show($"Jurusan '{CmbJurusan.Text}' belum memiliki kelas.\nTambahkan kelas di menu Manajemen Kelas.",
+                                    "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
 

@@ -210,6 +210,9 @@
     <EmbeddedResource Include="Role.resx">
       <DependentUpon>Role.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WaliKelas.resx">
+      <DependentUpon>WaliKelas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
