@@ -152,7 +152,7 @@ namespace BukuIndukSekolah
             {
                 if (Nipd_pilih == null)
                 {
-                    DBBIS.crud($"INSERT INTO siswa VALUES ('{nipd}', '{nisn}', '{jurusan}', '{kelas}', '{nama}', '{gender}', '{tempat}', '{tanggal}', '{agama}', '{ayah}', '{ibu}', '{alamat}')");
+                    DBBIS.crud($"INSERT INTO siswa (nipd, nisn, jurusan, kelas, nama_lengkap, jenis_kelamin, tmp_lahir, tgl_lahir, agama, nama_ayah, nama_ibu, alamat_domisili) VALUES ('{nipd}', '{nisn}', '{jurusan}', '{kelas}', '{nama}', '{gender}', '{tempat}', '{tanggal}', '{agama}', '{ayah}', '{ibu}', '{alamat}')");
                     MessageBox.Show("Data Siswa Berhasil Disimpan!");
                 }
                 else
